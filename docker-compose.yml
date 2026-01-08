@@ -1,0 +1,27 @@
+services:
+  app-goles:
+    build: .
+    image: fase1:latest
+    stdin_open: true
+    tty: true
+    networks:
+      - jenkins-net
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    user: root  # Crucial para que pueda leer el docker.sock
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - jenkins-net
+
+networks:
+  jenkins-net:
+
+volumes:
+  # Cambiado a jenkins_home para coincidir con tu carpeta local
+  jenkins_data:
