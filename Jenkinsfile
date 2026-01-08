@@ -20,6 +20,6 @@ pipeline {
             //    sh 'docker run --name test-container -d fase1:latest'
                 // sh 'docker stop test-container && docker rm test-container'
            // }
-        }
+       // }
     }
 }
