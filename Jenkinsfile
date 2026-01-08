@@ -7,12 +7,12 @@ pipeline {
                 checkout scm
             }
         }
-        // stage('Build Image') {
-           // steps {
+         stage('Build Image') {
+            steps {
                 // Construye la imagen de Docker usando el Dockerfile del repo
-             //   sh 'docker build -t fase1:latest .'
-           // }
-       // }
+                sh 'docker build -t fase1:latest .'
+            }
+        }
         //stage('Run Container') {
           //  steps {
                 // Prueba que el contenedor arranca
